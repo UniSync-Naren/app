@@ -1,11 +1,15 @@
 'use client'
-import Link from 'next/link';
-import {Button, AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import {Button, AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const navItems = ['Home', 'About', 'Contact'];
-
 const NavBar: React.FC = () => {
+
+
+const handleSignInClick = () => {
+}
+
+const handleSignUpClick = () => {
+ }
   return (
     <AppBar component="nav">
     <Toolbar>
@@ -24,8 +28,8 @@ const NavBar: React.FC = () => {
       >
         UniSync
       </Typography>
-      <Button variant="contained">Sign In</Button>
-      <Button variant="contained">Sign Up</Button>
+      <Button variant="contained" onClick={handleSignInClick}>Sign In</Button>
+      <Button variant="contained" onClick={handleSignUpClick}>Sign Up</Button>
     </Toolbar>
   </AppBar>
   );
