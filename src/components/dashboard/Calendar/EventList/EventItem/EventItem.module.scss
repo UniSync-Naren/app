@@ -1,11 +1,8 @@
 .eventitem {
     display: flex;
     height: 100px;
-    margin-right: 5%;
     background-color: white;
     color: #0e0d0d;
     flex-direction: column;
-    margin-top: 10px;
-    border-color: #B3B6C0;
-    border-style: solid;
+    border-bottom: 0.5px solid #B3B6C0;
   }

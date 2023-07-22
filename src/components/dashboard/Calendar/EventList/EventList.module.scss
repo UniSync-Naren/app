@@ -10,4 +10,10 @@
 
 .eventscroll{
   overflow: auto;
+  margin: 0px;
+  padding: 0px;
+
+}
+.eventscroll::-webkit-scrollbar{
+  display: none;
 }

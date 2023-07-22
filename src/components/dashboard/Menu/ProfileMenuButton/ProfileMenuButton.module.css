@@ -1,0 +1,23 @@
+.profilemenubutton {
+  display: flex;
+  height: 40px;
+  width: 90%;
+  align-self: center;
+  align-items: center;
+  border-style: none;
+  background-color: #F5F5F5;
+  color: #7f8080;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.profilemenubutton:hover {
+  background-color: #2B67F4;
+  transition: 0.2s;
+  color: white;
+}
+
+.nametext {
+  margin-left: 10px;
+}/*# sourceMappingURL=ProfileMenuButton.module.css.map */
