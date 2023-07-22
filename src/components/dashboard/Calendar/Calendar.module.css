@@ -1,0 +1,6 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}/*# sourceMappingURL=Calendar.module.css.map */

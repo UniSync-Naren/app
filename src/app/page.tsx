@@ -1,10 +1,10 @@
-import Homepage from '@/pages/homepage'
+import Dashboard from "@/components/Dashboard/Dashboard"
 
 
 export default function Home() {
   return (
     <main>
-      <Homepage/> 
+      <Dashboard/> 
     </main>
   )
 }
