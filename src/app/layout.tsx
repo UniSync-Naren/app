@@ -1,4 +1,6 @@
+import Menu from '@/components/base/Menu/Menu'
 import './globals.css'
+import InfoBoard from '@/components/base/InfoBoard/InfoBoard'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <Menu/>
+        {children}
+        <InfoBoard/>
+      </body>
     </html>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentHeader from './ContentHeader/ContentHeader';
-import EventList from './EventList/EventList';
+import ContentHeader from '../ContentHeader/ContentHeader';
+import EventList from '../EventList/EventList';
 import styles from './Calendar.module.css'
 
 export default function Calendar() {
