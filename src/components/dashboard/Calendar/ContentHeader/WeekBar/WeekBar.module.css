@@ -1,0 +1,12 @@
+.weekbar {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
+  background-color: #F5F5F5;
+  border-top: solid #dadce5;
+}
+
+.weektext {
+  font-family: "system-ui";
+}/*# sourceMappingURL=WeekBar.module.css.map */
