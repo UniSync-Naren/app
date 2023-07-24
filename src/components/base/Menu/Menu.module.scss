@@ -7,8 +7,7 @@
   color: #7f8080;
   flex-direction: column;
   align-items: flex-start;
-  border-right-style: solid;
-  border-right-color: #e5e4e5;
+  border-right: solid #e5e4e5 1px;
 }
 
 .menulist {
@@ -33,5 +32,4 @@
 
 .menulist li a:hover {
   text-decoration: underline;
-  
 }

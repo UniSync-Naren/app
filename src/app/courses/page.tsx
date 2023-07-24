@@ -1,10 +1,8 @@
-import Courses from "@/components/Dashboard/Courses/Courses"
+import CourseContent from '@/components/Courses/CourseContent/CourseContent';
+import styles from './Courses.module.scss'
 
-
-export default function Home() {
+export default function Courses() {
   return (
-    <main>
-      <Courses/> 
-    </main>
-  )
+    <CourseContent/>
+  );
 }

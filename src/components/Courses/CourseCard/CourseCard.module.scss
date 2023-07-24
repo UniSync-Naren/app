@@ -1,0 +1,47 @@
+
+.card {
+max-width: 550px;
+border: 0;
+width: 100%;
+margin-inline: auto;
+}
+
+.containerCard {
+position: relative;
+border: 2px solid transparent;
+background: #a3bad2;
+background-clip: padding-box;
+border-radius: 5px;
+padding: 40px;
+img {
+    margin-bottom: 32px;
+}
+}
+.containerCard:hover {
+    position: relative;
+    background: #2b67f4;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+
+
+.cardTitle {
+font-weight: 600;
+color: white;
+letter-spacing: -0.02em;
+line-height: 40px;
+font-style: normal;
+font-size: 28px;
+padding-bottom: 8px;
+font-family:system-ui;
+}
+
+.cardDescription {
+font-weight: 600;
+line-height: 32px;
+color: hsla(0, 0%, 100%, 0.5);
+font-size: 16px;
+max-width: 470px;
+font-family:system-ui;
+}
+  
