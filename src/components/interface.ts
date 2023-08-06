@@ -1,12 +1,28 @@
+export interface CourseGridProps {
+    courseList: Course[];
+}
+
+export interface CourseCardProps {
+    name: string;
+    code: string;
+}
+
+
 interface User {
-    userid: number;
     name: string;
     username: string;
     password: string;
 }
 
+interface Semester {
+    semesterid: number;
+    startDate: number;
+    endDate: number;
+
+}
+
 interface Course {
-    courseid: number;
+    username: string;
     name: string;
     code: string;
 }
