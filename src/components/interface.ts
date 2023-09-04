@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface CourseGridProps {
     courseList: Course[];
 }
@@ -7,6 +9,18 @@ export interface CourseCardProps {
     code: string;
 }
 
+export interface AddCardProps {
+    handleClick: () => void
+}
+export interface AddCardPopUpProps {
+    trigger: Boolean;
+    handleInput: (e: ChangeEvent<HTMLInputElement>) => void; 
+    formData: {
+        name: string,
+        code: string
+      }; 
+    addCourse: () => void;
+}
 
 interface User {
     name: string;

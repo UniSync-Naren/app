@@ -5,9 +5,9 @@ export default function ProfileMenuButton() {
   return (
     <button className={styles.profilemenubutton}>
         <AccountCircleIcon/>
-        <text className={styles.nametext}>
+        <div className={styles.nametext}>
         Naren Sreekanth
-        </text>
+        </div>
     </button>
   );
 }

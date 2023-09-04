@@ -7,7 +7,7 @@ export default function CourseCard(props: CourseCardProps) {
         <div className={styles.card}>
           <div className={styles.containerCard}>
             <div className={styles.bgGreenBox}>
-              <text className={styles.cardTitle}>{props.name}</text>
+              <div className={styles.cardTitle}>{props.name}</div>
               <p className={styles.cardDescription}>{props.code}</p>
             </div>
           </div>

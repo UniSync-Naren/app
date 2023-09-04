@@ -13,7 +13,6 @@ export default function CourseContent() {
   async function fetchData() {
     try {
       let request = {
-        host: 'myapi.execute-api.us-west-2.amazonaws.com',
         method: 'GET',
         url: 'https://jyjbq8yv5l.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
         params: {
@@ -41,9 +40,9 @@ export default function CourseContent() {
   }, []);
   return (
     <div className={styles.main}>
-      <text className={styles.headerText}>
+      <div className={styles.headerText}>
         My Courses
-      </text>  
+      </div>  
         <CourseGrid courseList = {courseList}/>
     </div>
   );
