@@ -1,13 +1,14 @@
 import styles from './EventItem.module.css'
+import {EventItemProps} from '../../../interface'
 
-export default function EventItem() {
+export default function EventItem(props: EventItemProps) {
   return (
     <div className={styles.eventitem}>
       <div className={styles.eventname}>
-      Lecture - Data Structures and Algorithms
+      {props.eventType}
       </div>
       <div className={styles.eventtime}>
-      2pm - 5pm
+        {props.endTime.toString()}
       </div>
     </div>
   );

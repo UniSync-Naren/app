@@ -41,13 +41,23 @@ interface Course {
     code: string;
 }
 
-interface Event {
-    userid: number;
+export interface Event {
+    eventid: string;
+    username: number;
     eventType: EventType;
+    courseid: string;
     startTime: Date;
     endTime: Date;
     graded: number;
 }
+
+export interface EventItemsList {
+    events: Event[]
+}
+
+
+
+type EventType = ClassType | ExamType | AssignmentType;
 
 enum ClassType {
     lecture, 
@@ -69,4 +79,9 @@ enum AssignmentType {
     project
 }
 
-type EventType = ClassType | ExamType | AssignmentType;
+export interface EventItemProps {
+    eventType: EventType;
+    courseid: string;
+    endTime: Date;
+    graded: number;
+}

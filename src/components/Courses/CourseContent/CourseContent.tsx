@@ -14,7 +14,7 @@ export default function CourseContent() {
     try {
       let request = {
         method: 'GET',
-        url: 'https://jyjbq8yv5l.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
+        url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
         params: {
           username: 'naren999'
         }

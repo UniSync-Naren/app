@@ -33,7 +33,7 @@ export default function CourseGrid(props: CourseGridProps) {
     try {
       let request = {
         method: 'POST',
-        url: 'https://jyjbq8yv5l.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
+        url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
         data: JSON.stringify({
           username: 'naren999',
           code: formData.code, 
