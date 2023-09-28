@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import ContentHeader from "./Dashboard/ContentHeader/ContentHeader";
 
 export interface CourseGridProps {
     courseList: Course[];
@@ -84,4 +85,20 @@ export interface EventItemProps {
     courseid: string;
     endTime: Date;
     graded: number;
+}
+
+export interface EventListProps {
+    weekList : Date[];
+}
+
+export interface ContentHeaderProps {
+    weekNumber : Number;
+    handleRightPress: () => void;
+    handleLeftPress: () => void;
+}
+
+export interface WeekBarProps {
+    weekNumber : Number;
+    handleRightPress: () => void;
+    handleLeftPress: () => void;
 }
