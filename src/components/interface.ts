@@ -8,6 +8,7 @@ export interface CourseGridProps {
 export interface CourseCardProps {
     name: string;
     code: string;
+    handleClick : (code: string) => void;
 }
 
 export interface AddCardProps {

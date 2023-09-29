@@ -5,10 +5,13 @@ import {CourseGridProps} from '../../interface'
 import { ChangeEvent, useState } from 'react';
 import AddCardPopUp from '../AddCardPopUp/AddCardPopUp';
 import axios from 'axios';
+import { useRouter } from 'next/navigation'
 
 export default function CourseGrid(props: CourseGridProps) {
 
   const [popUpTrigger, setPopUpTrigger] = useState(false);
+
+  const router = useRouter()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -52,10 +55,17 @@ export default function CourseGrid(props: CourseGridProps) {
     setPopUpTrigger(false);
   }
 
+  const handleClick = (code : string) => {
+    const link = '/courseDetails/' + code
+    router.push(link)
+  }
+
 
   return (
     <div className={styles.gradientCards}>
-      {props.courseList.map(item => <CourseCard key={item.code} name={item.name} code={item.code}/>)}
+      {props.courseList.map(item => 
+      <CourseCard key={item.code} name={item.name} code={item.code} handleClick = {handleClick}/>
+      )}
       <AddCard handleClick={openPopUp} />
       <AddCardPopUp trigger={popUpTrigger} formData={formData} handleInput={handleInput} addCourse={addCourse}/>
     </div>
