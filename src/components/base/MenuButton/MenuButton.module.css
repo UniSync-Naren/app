@@ -1,0 +1,16 @@
+.menubutton {
+  height: 40px;
+  width: 90%;
+  align-self: center;
+  border-style: none;
+  background-color: #F5F5F5;
+  color: #7f8080;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.menubutton:hover {
+  background-color: #2B67F4;
+  transition: 0.2s;
+  color: white;
+}/*# sourceMappingURL=MenuButton.module.css.map */

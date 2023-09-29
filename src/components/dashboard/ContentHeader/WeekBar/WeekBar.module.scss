@@ -1,0 +1,19 @@
+.weekbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    width: 100%;
+    background-color: #2B67F4;
+    border-top:solid #dadce5;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+.weektext {
+    font-family: 'system-ui';
+}
+.arrow{
+  color: white;
+}
