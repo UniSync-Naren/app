@@ -1,0 +1,60 @@
+.form-container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #90b4d0; /* Light blue background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+.form-container h1 {
+  text-align: center;
+  color: #333;
+}
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+.form-container form label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.form-container form label input,
+.form-container form label select,
+.form-container form label button {
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.form-container form label input[type=checkbox] {
+  margin-top: 0;
+}
+.form-container form label input[type=date],
+.form-container form label input[type=time],
+.form-container form label input[type=number] {
+  width: 100%;
+}
+.form-container form label select {
+  width: 100%;
+}
+.form-container form label button {
+  background-color: #2b67f4; /* Blue button color */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.form-container form label button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+.form-container form div {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ecf0f1; /* Light gray background for repetition details */
+  border-radius: 4px;
+}
+.form-container form div label {
+  display: block;
+  margin-bottom: 8px;
+}/*# sourceMappingURL=AddEvent.css.map */
