@@ -45,7 +45,7 @@ export default function Calendar() {
     });
 
     return filteredEvents;
-}
+  }
 
   const [startDates, setStartDates] = useState(getMondays(new Date('2023-09-05T00:00'), new Date('2023-12-15T00:00')))
   const [weekCounter, setWeekCounter] = useState(0);

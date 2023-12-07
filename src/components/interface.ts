@@ -1,5 +1,4 @@
 import { ChangeEvent } from "react";
-import ContentHeader from "./Dashboard/ContentHeader/ContentHeader";
 
 export interface CourseGridProps {
     courseList: Course[];
@@ -45,40 +44,38 @@ interface Course {
 
 export interface Event {
     eventid: string;
-    username: number;
+    username: string;
     eventType: EventType;
     courseid: string;
     startTime: Date;
     endTime: Date;
-    graded: number;
+    graded: boolean;
 }
 
 export interface EventItemsList {
     events: Event[]
 }
 
+export type EventType = ClassType | ExamType | AssignmentType;
 
-
-type EventType = ClassType | ExamType | AssignmentType;
-
-enum ClassType {
-    lecture, 
-    tutorial, 
-    lab, 
-    seminar, 
-    workshop, 
+export enum ClassType {
+    lecture = "lecture", 
+    tutorial = "tutorial", 
+    lab = "lab", 
+    seminar = "seminar", 
+    workshop = "workshop", 
 }
-enum ExamType {
-    exam, 
-    practicals, 
-    takeHomeExam, 
-    quiz, 
-    presentation
+export enum ExamType {
+    exam = "exam", 
+    practicals = "practicals", 
+    takeHomeExam = "takeHomeExam", 
+    quiz = "quiz", 
+    presentation = "presentation"
 }
-enum AssignmentType {
-    assignment,
-    report, 
-    project
+export enum AssignmentType {
+    assignment = "assignment",
+    report = "report", 
+    project = "project"
 }
 
 export interface EventItemProps {
@@ -103,3 +100,16 @@ export interface WeekBarProps {
     handleRightPress: () => void;
     handleLeftPress: () => void;
 }
+
+export interface AddEventDetails {
+    startTime: string;
+    endTime: string;
+    date: string;
+    eventType: EventType;
+    isGraded: boolean;
+    repeat: boolean;
+    repeatType: string;
+    repeatFrequency: number;
+    repeatEndType: string;
+    repeatEndDate: string;
+  }
