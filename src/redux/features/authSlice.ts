@@ -5,7 +5,7 @@ const initalAuthState = {
     username: "naren999", 
 }
 
-export const authSlice = createSlice(
+export const auth = createSlice(
     {
         name: "auth",
         initialState: initalAuthState,
@@ -14,3 +14,6 @@ export const authSlice = createSlice(
         }
     }
 )
+
+export const {} = auth.reducer;
+export default auth.reducer;
