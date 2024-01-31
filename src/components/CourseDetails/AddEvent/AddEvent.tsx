@@ -44,11 +44,10 @@ export default function AddEvents() {
 
     startTime.setHours(startHours, startMinutes);
     endTime.setHours(endHours, endMinutes);
-    let uuid = self.crypto.randomUUID()
-    console.log(uuid)
+    const uuid = self.crypto.randomUUID()
 
     repeatedEvents.push({
-      eventid: '7', // You need to define a function to generate a unique ID
+      eventid: uuid, // You need to define a function to generate a unique ID
       username: 'naren999',
       eventType: eventDetails.eventType,
       courseid: code,
@@ -76,8 +75,9 @@ export default function AddEvents() {
 
           startTime.setHours(startHours, startMinutes);
           endTime.setHours(endHours, endMinutes);
+          const uuid = self.crypto.randomUUID()
           repeatedEvents.push({
-            eventid: '0',
+            eventid: uuid,
             username: 'naren999',
             eventType: eventDetails.eventType,
             courseid: code,
