@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { NumericLiteral } from "typescript";
 
 export interface CourseGridProps {
     courseList: Course[];
@@ -49,7 +50,7 @@ export interface Event {
     courseid: string;
     startTime: Date;
     endTime: Date;
-    graded: boolean;
+    graded: number;
 }
 
 export interface EventItemsList {
@@ -106,7 +107,7 @@ export interface AddEventDetails {
     endTime: string;
     date: string;
     eventType: EventType;
-    isGraded: boolean;
+    grade: number;
     repeat: boolean;
     repeatType: string;
     repeatFrequency: number;
