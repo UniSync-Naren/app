@@ -4,7 +4,7 @@ import ContentHeader from '../ContentHeader/ContentHeader';
 import EventList from '../EventList/EventList';
 import styles from './Calendar.module.css'
 import axios from 'axios';
-import { Event } from '@/components/interface';
+import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType } from '@/components/interface';
 
 export default function Calendar() {
 
@@ -108,6 +108,69 @@ export default function Calendar() {
       console.log(weekCounter - 1, startDates[weekCounter - 1], startDates[weekCounter])
     }
   }
+
+  const calculateWorkload = (eventList: EventItemsList, dates: Date[]) => {
+    let totalTime = 0;
+    let totalGrade = 0;
+    const eventNum = eventList.events.length
+    let weekTimes = new Array(dates.length).fill(0)
+    let weekGrades = new Array(dates.length).fill(0)
+    let weekScores = new Array(dates.length).fill(0)
+
+    //Calculate total time and grades to calculate score later
+    for(let i = 0;i < eventNum; i++) {
+      const currEvent = eventList.events[i]
+
+      const startTime = currEvent.startTime.getTime();
+      const endTime = currEvent.endTime.getTime();
+      const timeDifferenceInMinutes = (endTime - startTime) / (1000 * 60);
+      totalTime += timeDifferenceInMinutes;
+      totalGrade += currEvent.graded
+
+    }
+
+    //Calculating score for each week
+    for(let i = 0;i < eventNum; i++) {
+        let weekNum = 0
+        const currEvent = eventList.events[i]
+        for(let j = 0; j < dates.length - 1;j++){
+            weekNum = j
+            if (dates[j] < currEvent.startTime && dates[j + 1] > currEvent.startTime) {
+                break
+            }
+        }
+        // Calculate the time difference in minutes
+        const startTime = currEvent.startTime.getTime();
+        const endTime = currEvent.endTime.getTime();
+        const timeDifferenceInMinutes = (endTime - startTime) / (1000 * 60);
+
+        if (isClassType(currEvent.eventType)) {
+          weekScores[weekNum] += timeDifferenceInMinutes/totalTime
+        } 
+        if (isAssignmentType(currEvent.eventType)) {
+          weekScores[weekNum] += currEvent.graded/totalGrade
+        } 
+        if (isExamType(currEvent.eventType)) {
+          weekScores[weekNum] += currEvent.graded/totalGrade
+        } 
+        
+    }
+    return weekScores
+}
+
+// Function to check if EventType is ClassType
+const isClassType = (eventType: EventType): eventType is ClassType => {
+  return (Object.values(ClassType) as string[]).includes(eventType as string);
+}
+
+// Function to check if EventType is AssignmentType
+const isAssignmentType = (eventType: EventType): eventType is AssignmentType => {
+  return (Object.values(AssignmentType) as string[]).includes(eventType as string);
+}
+// Function to check if EventType is ExamType
+const isExamType = (eventType: EventType): eventType is ExamType => {
+  return (Object.values(ExamType) as string[]).includes(eventType as string);
+}
 
 
   return (
