@@ -2,6 +2,8 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { AddEventDetails, Event, ClassType, ExamType, AssignmentType, EventType} from '@/components/interface';
 import './AddEvent.scss';
+import axios from 'axios';
+import { randomUUID } from 'crypto';
 
 export default function AddEvents() {
   const classTypes: string[] = Object.values(ClassType);
@@ -24,7 +26,7 @@ export default function AddEvents() {
 
   const [code, setCode] = useState('')
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log('Submitted event details:', eventDetails);
   
@@ -42,9 +44,10 @@ export default function AddEvents() {
 
     startTime.setHours(startHours, startMinutes);
     endTime.setHours(endHours, endMinutes);
+    const uuid = self.crypto.randomUUID()
 
     repeatedEvents.push({
-      eventid: '0', // You need to define a function to generate a unique ID
+      eventid: uuid, // You need to define a function to generate a unique ID
       username: 'naren999',
       eventType: eventDetails.eventType,
       courseid: code,
@@ -72,8 +75,9 @@ export default function AddEvents() {
 
           startTime.setHours(startHours, startMinutes);
           endTime.setHours(endHours, endMinutes);
+          const uuid = self.crypto.randomUUID()
           repeatedEvents.push({
-            eventid: '0',
+            eventid: uuid,
             username: 'naren999',
             eventType: eventDetails.eventType,
             courseid: code,
@@ -102,6 +106,19 @@ export default function AddEvents() {
   
     console.log('Repeated events:', repeatedEvents);
     // You can now use the 'repeatedEvents' list as needed, for example, send it to an API or store it in state.
+    try {
+      const request = {
+        method: 'POST',
+        url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
+        data: JSON.stringify(repeatedEvents),
+      };
+
+      const response = await axios(request);
+      console.log(response)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+    console.log("added Event");
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
