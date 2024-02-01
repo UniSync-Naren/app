@@ -5,6 +5,7 @@ import EventList from '../EventList/EventList';
 import styles from './Calendar.module.css'
 import axios from 'axios';
 import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType } from '@/components/interface';
+import { start } from 'repl';
 
 export default function Calendar() {
 
@@ -47,57 +48,59 @@ export default function Calendar() {
     return filteredEvents;
   }
 
-  const [startDates, setStartDates] = useState(getMondays(new Date('2023-09-05T00:00'), new Date('2023-12-15T00:00')))
+  const [startDates, setStartDates] = useState(getMondays(new Date('2024-01-15T00:00'), new Date('2024-05-09T00:00')))
   const [weekCounter, setWeekCounter] = useState(0);
   const [eventList, setEventList] = useState([])
   const [weekList, setWeekList] = useState(filterEvents(startDates[0], startDates[1]))
 
-  async function fetchData() {
-    try {
-      let request = {
-        method: 'GET',
-        url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
-        params: {
-          username: 'naren999'
-        }
-      };
-      
-      //Convert to EventList from response format
-      const response = await axios(request);
-      console.log(response)
-      var newEventList = response.data.events.map((item: any) => {
-        return {eventid: item.eventid.S,
-        username: item.username.S, 
-        eventType: item.eventType.S,
-        courseid: item.courseid.S,
-        startTime: item.startTime.S,
-        endTime: item.endTime.S, 
-        graded: item.graded.N,
-      }
-      });
-
-      // Use alpha numeric to sort events by date
-      newEventList.sort((a : any, b : any) => a.startTime.localeCompare(b.startTime));
-      setEventList(newEventList);
-      setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
-      // console.log("Event List:", eventList)
-      // console.log("week list : ", weekList)
-
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
-
   useEffect(() => {
-    console.log(startDates)
+    async function fetchData() {
+      try {
+        let request = {
+          method: 'GET',
+          url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
+          params: {
+            username: 'naren999'
+          }
+        };
+        
+        //Convert to EventList from response format
+        const response = await axios(request);
+        console.log("Axios Response: ", response)
+        const newEventList = response.data.events.map((item: any) => {
+          return {eventid: item.eventid.S,
+          username: item.username.S, 
+          eventType: item.eventType.S,
+          courseid: item.courseid.S,
+          startTime: item.startTime.S,
+          endTime: item.endTime.S, 
+          graded: item.graded.N,
+        }
+        });
+  
+        // Use alpha numeric to sort events by date
+        newEventList.sort((a : any, b : any) => a.startTime.localeCompare(b.startTime));
+        setEventList(newEventList);
+        console.log("Events : ", eventList)
+        setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
+        //Get workload scores
+        const eventItemList = {events: newEventList}
+        const workloads = calculateWorkload(eventItemList, startDates)
+        console.log("Workloads: ", workloads)
+  
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    // console.log(startDates)
     fetchData();
-  }, []);
+  }, [weekCounter]);
 
   const increaseWeek = () => {
     if (weekCounter < startDates.length - 2) {
       setWeekCounter(weekCounter + 1)
       setWeekList(filterEvents( startDates[weekCounter + 1], startDates[weekCounter + 2]))
-      console.log(weekCounter + 1, startDates[weekCounter + 1], startDates[weekCounter + 2])
+      // console.log(weekCounter + 1, startDates[weekCounter + 1], startDates[weekCounter + 2])
     }
   }
 
@@ -105,7 +108,7 @@ export default function Calendar() {
     if (weekCounter > 0) {
       setWeekCounter(weekCounter - 1)
       setWeekList(filterEvents( startDates[weekCounter - 1], startDates[weekCounter ]))
-      console.log(weekCounter - 1, startDates[weekCounter - 1], startDates[weekCounter])
+      // console.log(weekCounter - 1, startDates[weekCounter - 1], startDates[weekCounter])
     }
   }
 
@@ -113,20 +116,17 @@ export default function Calendar() {
     let totalTime = 0;
     let totalGrade = 0;
     const eventNum = eventList.events.length
-    let weekTimes = new Array(dates.length).fill(0)
-    let weekGrades = new Array(dates.length).fill(0)
     let weekScores = new Array(dates.length).fill(0)
 
     //Calculate total time and grades to calculate score later
     for(let i = 0;i < eventNum; i++) {
       const currEvent = eventList.events[i]
-
-      const startTime = currEvent.startTime.getTime();
-      const endTime = currEvent.endTime.getTime();
+      const startTime = new Date(currEvent.startTime).getTime();
+      const endTime = new Date(currEvent.endTime).getTime();
       const timeDifferenceInMinutes = (endTime - startTime) / (1000 * 60);
       totalTime += timeDifferenceInMinutes;
-      totalGrade += currEvent.graded
-
+      totalGrade += Number(currEvent.graded)
+      console.log(totalGrade)
     }
 
     //Calculating score for each week
@@ -135,13 +135,14 @@ export default function Calendar() {
         const currEvent = eventList.events[i]
         for(let j = 0; j < dates.length - 1;j++){
             weekNum = j
-            if (dates[j] < currEvent.startTime && dates[j + 1] > currEvent.startTime) {
+            if (dates[j] < new Date(currEvent.startTime) && dates[j + 1] > new Date(currEvent.startTime)) {
                 break
             }
         }
         // Calculate the time difference in minutes
-        const startTime = currEvent.startTime.getTime();
-        const endTime = currEvent.endTime.getTime();
+
+        const startTime = new Date(currEvent.startTime).getTime();
+        const endTime = new Date(currEvent.endTime).getTime();
         const timeDifferenceInMinutes = (endTime - startTime) / (1000 * 60);
 
         if (isClassType(currEvent.eventType)) {
