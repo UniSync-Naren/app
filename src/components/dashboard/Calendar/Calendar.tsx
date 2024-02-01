@@ -5,7 +5,7 @@ import EventList from '../EventList/EventList';
 import styles from './Calendar.module.css'
 import axios from 'axios';
 import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType } from '@/components/interface';
-import { start } from 'repl';
+import InfoBoard from '../InfoBoard/InfoBoard';
 
 export default function Calendar() {
 
@@ -52,6 +52,8 @@ export default function Calendar() {
   const [weekCounter, setWeekCounter] = useState(0);
   const [eventList, setEventList] = useState([])
   const [weekList, setWeekList] = useState(filterEvents(startDates[0], startDates[1]))
+  const [weekScores, setWeekScores] = useState(new Array(startDates.length).fill(0))
+  const [categorizedScores, setCategorizedScores] = useState(new Array(startDates.length).fill("medium"))
 
   useEffect(() => {
     async function fetchData() {
@@ -85,16 +87,19 @@ export default function Calendar() {
         setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
         //Get workload scores
         const eventItemList = {events: newEventList}
-        const workloads = calculateWorkload(eventItemList, startDates)
-        console.log("Workloads: ", workloads)
+        const workloadInfo = calculateWorkload(eventItemList, startDates)
+        setWeekScores(workloadInfo[0])
+        setCategorizedScores(workloadInfo[1])
   
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     }
     // console.log(startDates)
+    if(eventList.length == 0) {
     fetchData();
-  }, [weekCounter]);
+    }
+  }, [eventList, weekCounter, weekScores]);
 
   const increaseWeek = () => {
     if (weekCounter < startDates.length - 2) {
@@ -156,7 +161,29 @@ export default function Calendar() {
         } 
         
     }
-    return weekScores
+
+    // Normalize scores using mean and standard deviation
+    const mean = weekScores.reduce((sum, score) => sum + score, 0) / weekScores.length;
+    const stdDev =
+    Math.sqrt(
+      weekScores.reduce((sum, score) => sum + Math.pow(score - mean, 2), 0) / weekScores.length
+    ) || 1;
+  // Convert normalized scores to a 0 to 100 scale
+  const convertedScores = weekScores.map((score) => ((score - mean) / stdDev) * 50 + 50);
+
+  // Categorize scores as low, medium, or high
+  const categorizedScores = convertedScores.map((score) => {
+    if (score < 33) {
+      return 'low';
+    } else if (score > 66) {
+      return 'high';
+    } else {
+      return 'medium';
+    }
+  });
+
+  console.log(convertedScores, categorizedScores)
+  return [convertedScores, categorizedScores]
 }
 
 // Function to check if EventType is ClassType
@@ -175,9 +202,14 @@ const isExamType = (eventType: EventType): eventType is ExamType => {
 
 
   return (
-    <div className={styles.calendar}>
-        <ContentHeader handleRightPress = {increaseWeek} handleLeftPress = {decreaseWeek} weekNumber = {weekCounter + 1}/>
-        <EventList weekList = {weekList} />
+    <div className= {styles.dashboard}>
+      <div className={styles.calendar}>
+          <ContentHeader handleRightPress = {increaseWeek} handleLeftPress = {decreaseWeek} weekNumber = {weekCounter + 1}/>
+          <EventList weekList = {weekList} />
+      </div>
+      <div className= {styles.infoBoard}>
+        <InfoBoard weekNum = {weekCounter} weekScores={weekScores} categorizedScores={categorizedScores}/>
+      </div>
     </div>
   );
 }

@@ -114,3 +114,9 @@ export interface AddEventDetails {
     repeatEndType: string;
     repeatEndDate: string;
   }
+
+export interface InfoBoardProps {
+    weekNum : number;
+    weekScores: number[];
+    categorizedScores: string[];
+  }
