@@ -16,7 +16,7 @@ export default function AddEvents() {
     endTime: '',
     date: '',
     eventType: ExamType.exam,
-    isGraded: false,
+    grade: 0,
     repeat: false,
     repeatType: 'daily',
     repeatFrequency: 1, // New field for repetition frequency
@@ -53,7 +53,7 @@ export default function AddEvents() {
       courseid: code,
       startTime: startTime,
       endTime: endTime,
-      graded: eventDetails.isGraded,
+      graded: eventDetails.grade,
     });
   
     // If event should be repeated
@@ -83,7 +83,7 @@ export default function AddEvents() {
             courseid: code,
             startTime: startTime,
             endTime: endTime,
-            graded: eventDetails.isGraded,
+            graded: eventDetails.grade,
           });
         }
   
@@ -123,16 +123,20 @@ export default function AddEvents() {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-
+  
     // Type assertion to handle both input and select elements
-    const newValue = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
-
+    let newValue: string | number | boolean = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+  
     if (name === 'eventType') {
       setEventDetails({ ...eventDetails, [name]: newValue as EventType });
+    } else if (name === 'grade') {
+      // Parse the value to ensure it's a number between 0 and 100
+      const parsedValue = parseInt(newValue as string, 10);
+      setEventDetails({ ...eventDetails, [name]: isNaN(parsedValue) ? 0 : Math.min(100, Math.max(0, parsedValue)) });
     } else {
       setEventDetails({ ...eventDetails, [name]: newValue });
     }
-};
+  };
 
 useEffect(() => {
   // Get the current URL
@@ -199,16 +203,18 @@ useEffect(() => {
       </label>
         <br />
 
-        <label>
-          Graded:
-          <input
-            type="checkbox"
-            name="isGraded"
-            checked={eventDetails.isGraded}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
+      <label>
+        Graded:
+        <input
+          type="number"  // Change to number input
+          name="grade"
+          value={eventDetails.grade}
+          onChange={handleInputChange}
+          min={0}
+          max={100}
+        />
+      </label>
+      <br />
 
         <label>
           Repeat:

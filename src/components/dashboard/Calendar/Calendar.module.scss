@@ -1,6 +1,17 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Set height to 100vh for the entire viewport height */
+  padding: 0;
+  margin: 0;
+}
+
 .calendar {
-    display: flex;
-    flex-direction: column;
-    height:100%;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.infoBoard {
+  width: 20%;
 }
