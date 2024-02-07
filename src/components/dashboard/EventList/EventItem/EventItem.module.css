@@ -10,8 +10,8 @@
 .eventname {
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
-  color: #2b67f4;
+  font-size: 15px;
+  color: #333;
 }
 .eventname span {
   margin-right: 5px;
@@ -19,7 +19,7 @@
 
 .eventtime {
   font-size: 12px;
-  color: #333;
+  color: #4c4c4c;
   margin-top: 5px;
 }
 .eventtime .grade {
