@@ -8,6 +8,14 @@
   flex-direction: column;
 }
 
+.dayCards {
+  border-bottom: 0.5px solid #b3b6c0;
+  font-family: system-ui;
+  font-weight: 200;
+  font-size: 30px;
+  color: #2b67f4;
+}
+
 .eventscroll {
   overflow: auto;
   margin: 0px;

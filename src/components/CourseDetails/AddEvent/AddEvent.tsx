@@ -34,6 +34,7 @@ export default function AddEvents() {
     const repeatedEvents: Event[] = [];
 
     // Add the original event
+    console.log("Event Details: ", eventDetails.startTime, eventDetails.endTime)
     const startHours = parseInt(eventDetails.startTime.split(':')[0], 10);
     const startMinutes = parseInt(eventDetails.startTime.split(':')[1], 10);
     const startTime = new Date(eventDetails.date);

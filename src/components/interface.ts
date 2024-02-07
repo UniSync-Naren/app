@@ -82,12 +82,13 @@ export enum AssignmentType {
 export interface EventItemProps {
     eventType: EventType;
     courseid: string;
+    startTime: Date;
     endTime: Date;
     graded: number;
 }
 
 export interface EventListProps {
-    weekList : Date[];
+    weekList : Event[];
 }
 
 export interface ContentHeaderProps {
