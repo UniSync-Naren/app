@@ -14,6 +14,7 @@
   .progressBar {
     height: 10px;
     transition: width 0.5s ease; /* Add transition effect */
+    max-width: 240px;
     margin-top: 10px;
 
     &.progressLevel {
