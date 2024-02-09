@@ -1,7 +1,18 @@
-.AddEvent{
-    height: 40px;
-    width: 60px;
-    margin: 30px;
-    border-radius: 5%;
-    background-color: #2b67f4;
+@import "../../global.scss";
+
+.courseEventsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .eventListContainer {
+    width: 60%;
+  }
+
+  .addEventContainer {
+    width: 35%;
+  }
 }

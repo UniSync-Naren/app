@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { NumericLiteral } from "typescript";
 
 export interface CourseGridProps {
@@ -22,6 +22,7 @@ export interface AddCardPopUpProps {
         code: string
       }; 
     addCourse: () => void;
+    setPopUpTrigger: Dispatch<SetStateAction<boolean>>;
 }
 
 interface User {

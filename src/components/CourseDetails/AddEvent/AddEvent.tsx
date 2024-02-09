@@ -3,7 +3,6 @@ import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { AddEventDetails, Event, ClassType, ExamType, AssignmentType, EventType} from '@/components/interface';
 import './AddEvent.scss';
 import axios from 'axios';
-import { randomUUID } from 'crypto';
 
 export default function AddEvents() {
   const classTypes: string[] = Object.values(ClassType);

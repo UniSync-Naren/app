@@ -67,7 +67,7 @@ export default function CourseGrid(props: CourseGridProps) {
       <CourseCard key={item.code} name={item.name} code={item.code} handleClick = {handleClick}/>
       )}
       <AddCard handleClick={openPopUp} />
-      <AddCardPopUp trigger={popUpTrigger} formData={formData} handleInput={handleInput} addCourse={addCourse}/>
+      <AddCardPopUp trigger={popUpTrigger} formData={formData} handleInput={handleInput} addCourse={addCourse} setPopUpTrigger = {setPopUpTrigger}/>
     </div>
   );
 }

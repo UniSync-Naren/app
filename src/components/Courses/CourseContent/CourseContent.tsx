@@ -40,9 +40,6 @@ export default function CourseContent() {
   }, []);
   return (
     <div className={styles.main}>
-      <div className={styles.headerText}>
-        My Courses
-      </div>  
         <CourseGrid courseList = {courseList}/>
     </div>
   );

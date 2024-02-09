@@ -1,7 +1,14 @@
-.AddEvent {
-  height: 40px;
-  width: 60px;
-  margin: 30px;
-  border-radius: 5%;
-  background-color: #2b67f4;
+.courseEventsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.courseEventsContainer .eventListContainer {
+  width: 60%;
+}
+.courseEventsContainer .addEventContainer {
+  width: 35%;
 }/*# sourceMappingURL=CourseEvents.module.css.map */

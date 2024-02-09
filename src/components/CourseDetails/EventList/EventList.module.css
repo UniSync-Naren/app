@@ -1,0 +1,32 @@
+.eventListContainer {
+  font-family: "Helvetica", sans-serif;
+}
+.eventListContainer h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.eventListContainer ul {
+  list-style: none;
+  padding: 0;
+}
+.eventListContainer ul li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.eventListContainer ul li strong {
+  color: #333;
+}
+.eventListContainer ul li span {
+  color: #555;
+}
+.eventListContainer ul li .event-time {
+  font-weight: bold;
+  color: #0070c9;
+}
+.eventListContainer p {
+  color: #555;
+}/*# sourceMappingURL=EventList.module.css.map */

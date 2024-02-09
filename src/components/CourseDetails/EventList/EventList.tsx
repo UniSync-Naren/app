@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {Event} from "../../interface"
+import styles from "./EventList.module.scss"
 
 export default function EventList() {
-    const [eventList, setEventList] = useState([])
+    const [eventList, setEventList] = useState<Event[]>([])
     // const [code, setCode] = useState("")
 
     async function fetchData(code : string) {
@@ -54,16 +55,35 @@ export default function EventList() {
           fetchData(extractedCode)
         }
       }, []);
+
+      const convertToSingaporeTime = (utcDate : Date): string => {
+        
+        const singaporeTime = new Date(utcDate);
+
+        // Adjust for Singapore time (UTC+8)
+        singaporeTime.setHours(singaporeTime.getHours() + 8);
+
+        // Format the time (you can adjust the format as needed)
+        const formattedTime = singaporeTime.toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        });
+
+        return formattedTime;
+      };
+      
       return (
-        <div>
+        <div className={styles.eventListContainer}>
           <h2>Event List</h2>
           {eventList.length > 0 ? (
             <ul>
-              {eventList.map((event : Event) => (
-                <li key={event.eventid}>
-                  <strong>{event.eventType}</strong> - {event.startTime.toLocaleString()} to {event.endTime.toLocaleString()}
-                </li>
-              ))}
+              {eventList.map((event) => (
+              <li key={event.eventid}>
+                <strong>{event.eventType}</strong> - 
+                <span className="event-time">{convertToSingaporeTime(event.startTime)}</span> to <span className="event-time">{convertToSingaporeTime(event.endTime)}</span>
+              </li>
+                ))}
             </ul>
           ) : (
             <p>No events found.</p>
