@@ -3,7 +3,6 @@ import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { AddEventDetails, Event, ClassType, ExamType, AssignmentType, EventType} from '@/components/interface';
 import './AddEvent.scss';
 import axios from 'axios';
-import { randomUUID } from 'crypto';
 
 export default function AddEvents() {
   const classTypes: string[] = Object.values(ClassType);
@@ -34,6 +33,7 @@ export default function AddEvents() {
     const repeatedEvents: Event[] = [];
 
     // Add the original event
+    console.log("Event Details: ", eventDetails.startTime, eventDetails.endTime)
     const startHours = parseInt(eventDetails.startTime.split(':')[0], 10);
     const startMinutes = parseInt(eventDetails.startTime.split(':')[1], 10);
     const startTime = new Date(eventDetails.date);

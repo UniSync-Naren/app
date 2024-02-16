@@ -1,15 +1,25 @@
 import { InfoBoardProps } from '@/components/interface';
-import styles from './InfoBoard.module.css'
+import styles from './InfoBoard.module.scss';
 
 export default function InfoBoard(props: InfoBoardProps) {
+  const score = props.weekScores[props.weekNum];
+  const level = props.categorizedScores[props.weekNum];
+
+  // Calculate the percentage for the progress bar
+  const progressBarWidth = `${(score / 100) * 100}%`;
+
   return (
     <div className={styles.infoboard}>
-      <div>
-        Score: {props.weekScores[props.weekNum]}
+      <div className={styles.score}>
+        <span className={styles.scoreLabel}>Score</span>
+        <span className={styles.scoreValue}>{score}</span>
       </div>
-      <div>
-        Level: {props.categorizedScores[props.weekNum]}
+      <div className={styles.level}>
+        <span className={styles.levelLabel}>Level</span>
+        <span className={`${styles.levelValue} ${styles[level.toLowerCase()]}`}>{level}</span>
       </div>
+      <div className={`${styles.progressBar} ${styles.progressLevel} ${styles[level.toLowerCase()]}`} style={{ width: progressBarWidth }}></div>
     </div>
   );
 }
+

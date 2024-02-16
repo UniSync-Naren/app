@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { NumericLiteral } from "typescript";
 
 export interface CourseGridProps {
@@ -22,6 +22,7 @@ export interface AddCardPopUpProps {
         code: string
       }; 
     addCourse: () => void;
+    setPopUpTrigger: Dispatch<SetStateAction<boolean>>;
 }
 
 interface User {
@@ -82,12 +83,13 @@ export enum AssignmentType {
 export interface EventItemProps {
     eventType: EventType;
     courseid: string;
+    startTime: Date;
     endTime: Date;
     graded: number;
 }
 
 export interface EventListProps {
-    weekList : Date[];
+    weekList : Event[];
 }
 
 export interface ContentHeaderProps {

@@ -1,20 +1,43 @@
 .eventitem {
-    display: flex;
-    height: 100px;
-    background-color: white;
-    color: #0e0d0d;
-    flex-direction: column;
-    border-bottom: 0.5px solid #B3B6C0;
-    justify-content: center;
-  }
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.5px solid #b3b6c0;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: Helvetica;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5px;
+  flex: 1;
+}
 
 .eventname {
-  font-family:'system-ui';
-  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: #333;
+
+  span {
+    margin-right: 5px; // Add a small margin between spans
+  }
 }
 
 .eventtime {
-  font-family:'system-ui';
   font-size: 12px;
-  color: #7f8080;;
+  color: #4c4c4c;
+  margin-top: 5px;
+
+  .grade {
+    margin-left: 10px;
+  }
 }

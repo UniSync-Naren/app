@@ -4,11 +4,12 @@
   justify-content: space-between;
   height: 30px;
   width: 100%;
-  background-color: #2B67F4;
+  background-color: #2b67f4;
   border-top: solid #dadce5;
   color: white;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .weektext {

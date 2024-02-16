@@ -169,16 +169,16 @@ export default function Calendar() {
       weekScores.reduce((sum, score) => sum + Math.pow(score - mean, 2), 0) / weekScores.length
     ) || 1;
   // Convert normalized scores to a 0 to 100 scale
-  const convertedScores = weekScores.map((score) => ((score - mean) / stdDev) * 50 + 50);
+  const convertedScores = weekScores.map((score) => Math.round(((score - mean) / stdDev) * 50 + 50));
 
   // Categorize scores as low, medium, or high
   const categorizedScores = convertedScores.map((score) => {
     if (score < 33) {
-      return 'low';
+      return 'Low';
     } else if (score > 66) {
-      return 'high';
+      return 'High';
     } else {
-      return 'medium';
+      return 'Medium';
     }
   });
 

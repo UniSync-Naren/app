@@ -26,7 +26,6 @@ export default function Menu() {
         <ProfileMenuButton/>
         <MenuButton handleClick={handleCalendarClick} content='Calendar'/>
         <MenuButton handleClick={handleCoursesClick} content='Courses'/>
-        <MenuButton handleClick={handleEventsClick} content='Add Events'/>
       </ul>
     </div>
   );
