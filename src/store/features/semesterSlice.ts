@@ -7,7 +7,7 @@ const initalSemesterState = {
     endDate: new Date()
 }
 
-export const sem = createSlice(
+export const semSlice = createSlice(
     {
         name: "semester",
         initialState: initalSemesterState,
@@ -22,5 +22,5 @@ export const sem = createSlice(
     }
 )
 
-export const {newSem} = sem.actions;
-export default sem.reducer;
+export const {newSem} = semSlice.actions;
+export default semSlice.reducer;
