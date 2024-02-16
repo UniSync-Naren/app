@@ -1,4 +1,3 @@
-
 import AddEvent from "../AddEvent/AddEvent"
 import EventList from "../EventList/EventList"
 import styles from "./CourseEvents.module.scss"

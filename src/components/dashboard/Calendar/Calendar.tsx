@@ -6,8 +6,15 @@ import styles from './Calendar.module.css'
 import axios from 'axios';
 import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType } from '@/components/interface';
 import InfoBoard from '../InfoBoard/InfoBoard';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export default function Calendar() {
+
+  const semesterStartDate = useSelector((state: RootState) => new Date(state.semester.startDate));
+  const semesterEndDate = useSelector((state: RootState) => new Date(state.semester.endDate));
+  const username = useSelector((state: RootState) => state.auth.username)
+
 
   const getMondays = (startDate: Date, endDate : Date) => {
     const result = [];
@@ -48,8 +55,9 @@ export default function Calendar() {
     return filteredEvents;
   }
 
-  const [startDates, setStartDates] = useState(getMondays(new Date('2024-01-15T00:00'), new Date('2024-05-09T00:00')))
+  // using default dates in case of error
   const [weekCounter, setWeekCounter] = useState(0);
+  const [startDates, setStartDates] = useState(getMondays(new Date('2024-01-15T00:00'), new Date('2024-05-09T00:00')))  
   const [eventList, setEventList] = useState([])
   const [weekList, setWeekList] = useState(filterEvents(startDates[0], startDates[1]))
   const [weekScores, setWeekScores] = useState(new Array(startDates.length).fill(0))
@@ -57,12 +65,16 @@ export default function Calendar() {
 
   useEffect(() => {
     async function fetchData() {
+
+      setStartDates(getMondays(semesterStartDate, semesterEndDate));
+
       try {
         let request = {
           method: 'GET',
           url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
           params: {
-            username: 'naren999'
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            username: username
           }
         };
         

@@ -46,7 +46,7 @@ interface Course {
 
 export interface Event {
     eventid: string;
-    username: string;
+    username: string | null;
     eventType: EventType;
     courseid: string;
     startTime: Date;

@@ -3,11 +3,11 @@ import { semesterState } from '../interface'
 
 
 const initalSemesterState = {
-    startDate: new Date(),
-    endDate: new Date()
+    startDate: new Date('2024-01-15T00:00'),
+    endDate: new Date('2024-05-09T00:00')
 }
 
-export const sem = createSlice(
+export const semSlice = createSlice(
     {
         name: "semester",
         initialState: initalSemesterState,
@@ -22,5 +22,5 @@ export const sem = createSlice(
     }
 )
 
-export const {newSem} = sem.actions;
-export default sem.reducer;
+export const {newSem} = semSlice.actions;
+export const semReducer = semSlice.reducer;
