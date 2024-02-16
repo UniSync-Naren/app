@@ -1,3 +1,4 @@
+'use client'
 import CourseCard from '../CourseCard/CourseCard';
 import styles from './CourseGrid.module.scss'
 import AddCard from '../AddCard/AddCard';
@@ -6,6 +7,8 @@ import { ChangeEvent, useState } from 'react';
 import AddCardPopUp from '../AddCardPopUp/AddCardPopUp';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export default function CourseGrid(props: CourseGridProps) {
 
@@ -17,6 +20,7 @@ export default function CourseGrid(props: CourseGridProps) {
     name: "",
     code: ""
   });
+  const username = useSelector((state : RootState) => state.auth.username)
 
   const openPopUp = () => {
     setPopUpTrigger(true);
@@ -38,7 +42,7 @@ export default function CourseGrid(props: CourseGridProps) {
         method: 'POST',
         url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
         data: JSON.stringify({
-          username: 'naren999',
+          username: username,
           code: formData.code, 
           name: formData.name,
         }),

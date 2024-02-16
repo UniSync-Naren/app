@@ -1,11 +1,14 @@
-"use client"
+'use client'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {Event} from "../../interface"
 import styles from "./EventList.module.scss"
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 export default function EventList() {
     const [eventList, setEventList] = useState<Event[]>([])
+    const username = useSelector((state : RootState) => state.auth.username)
     // const [code, setCode] = useState("")
 
     async function fetchData(code : string) {
@@ -15,7 +18,7 @@ export default function EventList() {
             method: 'GET',
             url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
             params: {
-              username: 'naren999'
+              username: username
             }
           };
           

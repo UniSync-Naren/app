@@ -3,11 +3,14 @@ import { useEffect, useState } from 'react';
 import CourseGrid from '../CourseGrid/CourseGrid';
 import styles from './CourseContent.module.scss'
 import axios from 'axios';
+import { RootState } from '@/store/store';
+import { useSelector } from 'react-redux';
 
 
 export default function CourseContent() {
 
   const [courseList, setCourseList] = useState([])
+  const username = useSelector((state : RootState) => state.auth.username)
 
 
   async function fetchData() {
@@ -16,7 +19,7 @@ export default function CourseContent() {
         method: 'GET',
         url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/course',
         params: {
-          username: 'naren999'
+          username: username
         }
       };
 

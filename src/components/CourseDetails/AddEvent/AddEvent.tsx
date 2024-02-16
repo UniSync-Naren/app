@@ -3,6 +3,8 @@ import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { AddEventDetails, Event, ClassType, ExamType, AssignmentType, EventType} from '@/components/interface';
 import './AddEvent.scss';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export default function AddEvents() {
   const classTypes: string[] = Object.values(ClassType);
@@ -22,6 +24,7 @@ export default function AddEvents() {
     repeatEndType: 'never',
     repeatEndDate: '',
   });
+  const username = useSelector((state : RootState) => state.auth.username)
 
   const [code, setCode] = useState('')
 
@@ -48,7 +51,7 @@ export default function AddEvents() {
 
     repeatedEvents.push({
       eventid: uuid, // You need to define a function to generate a unique ID
-      username: 'naren999',
+      username: username,
       eventType: eventDetails.eventType,
       courseid: code,
       startTime: startTime,
@@ -78,7 +81,7 @@ export default function AddEvents() {
           const uuid = self.crypto.randomUUID()
           repeatedEvents.push({
             eventid: uuid,
-            username: 'naren999',
+            username: username,
             eventType: eventDetails.eventType,
             courseid: code,
             startTime: startTime,
