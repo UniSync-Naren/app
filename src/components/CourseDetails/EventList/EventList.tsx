@@ -4,7 +4,7 @@ import axios from "axios";
 import {Event} from "../../interface"
 import styles from "./EventList.module.scss"
 import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import { RootState } from "@/store/store";
 
 export default function EventList() {
     const [eventList, setEventList] = useState<Event[]>([])

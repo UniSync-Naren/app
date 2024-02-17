@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import CourseGrid from '../CourseGrid/CourseGrid';
 import styles from './CourseContent.module.scss'
 import axios from 'axios';
-import { RootState } from '@/store';
+import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 
 

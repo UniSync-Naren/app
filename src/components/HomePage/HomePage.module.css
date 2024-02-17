@@ -5,7 +5,6 @@
   font-family: "Helvetica", sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background: linear-gradient(to bottom left, #0e3f84, black);
   color: #2b67f4;
   overflow-y: auto;
@@ -52,7 +51,7 @@
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 8mm;
-  color: black;
+  color: #2b67f4;
 }
 .container .topMenu button {
   padding: 0.5rem 1rem;
@@ -77,6 +76,7 @@
 .container .heroSection {
   text-align: center;
   padding: 4rem 2rem;
+  flex-direction: column;
 }
 .container .heroSection h1 {
   font-family: "Helvetica", sans-serif;
@@ -88,6 +88,13 @@
   font-size: 1.1rem;
   color: white;
   margin-bottom: 2rem;
+}
+.container .heroSection .imageLogo {
+  width: 18vw; /* 50% of the viewport width */
+  height: auto; /* maintain aspect ratio */
+}
+.container .heroSection .imageContainer {
+  margin-bottom: 2%;
 }
 .container .heroSection .ctaBtn {
   background-color: #2b67f4;

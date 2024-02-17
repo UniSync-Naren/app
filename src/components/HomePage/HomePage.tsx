@@ -38,6 +38,9 @@ export default function HomePage() {
       <header className={styles.heroSection}>
         <h1>Balance Your University Life</h1>
         <p>UniSync helps you manage and visualize your weekly workload, making it easy to plan for success.</p>
+        <div className={styles.imageContainer}>
+        <img src="/Unisync.webp" alt="UniSync Logo" className={styles.imageLogo}/>
+        </div>
         <Button
           variant="contained"
           onClick={() => navigateToAuth('/signup')}

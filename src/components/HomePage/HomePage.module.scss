@@ -10,7 +10,6 @@ $primary-white: #ffffffff;
   font-family: $font-family;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; // Ensures it covers the viewport height
   background: linear-gradient(
     to bottom left,
     #0e3f84,
@@ -68,7 +67,7 @@ $primary-white: #ffffffff;
       font-weight: 700;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 8mm;
-      color: black;
+      color: $primary-color;
     }
 
     button {
@@ -99,6 +98,7 @@ $primary-white: #ffffffff;
   .heroSection {
     text-align: center;
     padding: 4rem 2rem;
+    flex-direction: column;
     // background: linear-gradient(
     //   to bottom right,
     //   $primary-color,
@@ -116,6 +116,15 @@ $primary-white: #ffffffff;
       font-size: 1.1rem;
       color: lighten($primary-white, 10%);
       margin-bottom: 2rem;
+    }
+    .imageLogo {
+      width: 18vw; /* 50% of the viewport width */
+      // max-width: 300px; /* maximum width */
+      height: auto; /* maintain aspect ratio */
+    }
+
+    .imageContainer {
+      margin-bottom: 2%;
     }
 
     .ctaBtn {
