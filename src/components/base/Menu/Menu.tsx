@@ -16,10 +16,6 @@ export default function Menu() {
     router.push('/courses')
   }
 
-  const handleEventsClick = () => {
-    router.push('/addevents')
-  }
-
   return (
     <div className= {styles.menu}>
       <ul className={styles.menulist}>

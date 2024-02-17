@@ -1,0 +1,157 @@
+$primary-color: #2b67f4; // Blue color
+$background-white: #ffffff;
+$font-family: "Helvetica", sans-serif;
+$primary-white: #ffffffff;
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $font-family;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to bottom left,
+    #0e3f84,
+    black
+  ); // Gradient from top right to bottom left
+  color: $primary-color;
+  overflow-y: auto;
+
+  .hero {
+    flex: 0 0 50vh; // Adjust the height as necessary
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: $primary-color;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .content-section {
+    flex: 1;
+    padding: 2rem;
+
+    // Additional styling for content sections
+  }
+
+  .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/path-to-your-stock-image.png"); // Link to your image
+    background-size: cover;
+    background-position: center;
+  }
+
+  .topMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgb(216, 218, 229);
+
+    .logo {
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8mm;
+      color: $primary-color;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .signInBtn {
+      background-color: transparent;
+      color: $primary-color;
+    }
+
+    .signUpBtn {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  .heroSection {
+    text-align: center;
+    padding: 4rem 2rem;
+    flex-direction: column;
+    // background: linear-gradient(
+    //   to bottom right,
+    //   $primary-color,
+    //   lighten($primary-color, 10%)
+    // );
+
+    h1 {
+      font-family: $font-family;
+      font-size: 2.5rem;
+      color: $primary-white;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: lighten($primary-white, 10%);
+      margin-bottom: 2rem;
+    }
+    .imageLogo {
+      width: 18vw; /* 50% of the viewport width */
+      // max-width: 300px; /* maximum width */
+      height: auto; /* maintain aspect ratio */
+    }
+
+    .imageContainer {
+      margin-bottom: 2%;
+    }
+
+    .ctaBtn {
+      background-color: $primary-color;
+      color: white;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  // Additional sections for features and testimonials
+
+  .finalCtaSection {
+    text-align: center;
+    padding: 2rem;
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: lighten($primary-color, 10%);
+    }
+
+    .finalSignUpBtn {
+      background-color: $background-white;
+      color: $primary-color;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+  }
+}
