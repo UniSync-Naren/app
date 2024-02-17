@@ -1,0 +1,112 @@
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Helvetica", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom left, #0e3f84, black);
+  color: #2b67f4;
+  overflow-y: auto;
+}
+.container .hero {
+  flex: 0 0 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #2b67f4;
+}
+.container .hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #2b67f4;
+}
+.container .hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.container .content-section {
+  flex: 1;
+  padding: 2rem;
+}
+.container .image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/path-to-your-stock-image.png");
+  background-size: cover;
+  background-position: center;
+}
+.container .topMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgb(216, 218, 229);
+}
+.container .topMenu .logo {
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8mm;
+  color: black;
+}
+.container .topMenu button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.container .topMenu button:hover {
+  opacity: 0.9;
+}
+.container .topMenu .signInBtn {
+  background-color: transparent;
+  color: #2b67f4;
+}
+.container .topMenu .signUpBtn {
+  background-color: #2b67f4;
+  color: white;
+}
+.container .heroSection {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.container .heroSection h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+.container .heroSection p {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+.container .heroSection .ctaBtn {
+  background-color: #2b67f4;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+.container .finalCtaSection {
+  text-align: center;
+  padding: 2rem;
+}
+.container .finalCtaSection p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #5b8af7;
+}
+.container .finalCtaSection .finalSignUpBtn {
+  background-color: #ffffff;
+  color: #2b67f4;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}/*# sourceMappingURL=HomePage.module.css.map */

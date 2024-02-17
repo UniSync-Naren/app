@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType } from '@/components/interface';
 import InfoBoard from '../InfoBoard/InfoBoard';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { RootState } from '@/store';
 
 export default function Calendar() {
 

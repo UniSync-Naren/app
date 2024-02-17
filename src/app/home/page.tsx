@@ -3,15 +3,15 @@ import CourseContent from '@/components/Courses/CourseContent/CourseContent';
 import styles from './Courses.module.scss'
 import { Provider } from 'react-redux';
 import { store } from '@/store/store';
-import SignedLayout from '../layouts/HomeLayout';
-import Home from '../page';
+import HomePage from '@/components/HomePage/HomePage';
+import HomeLayout from '../layouts/HomeLayout';
 
 export default function Courses() {
   return (
-    <SignedLayout>
-      <Provider store={store}>
-        <CourseContent/>
-      </Provider>
-    </SignedLayout>
+    <HomeLayout>
+        <Provider store={store}>
+        <HomePage/>
+        </Provider>
+    </HomeLayout>
   );
 }

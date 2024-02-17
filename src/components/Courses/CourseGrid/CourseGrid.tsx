@@ -8,7 +8,7 @@ import AddCardPopUp from '../AddCardPopUp/AddCardPopUp';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { RootState } from '@/store';
 
 export default function CourseGrid(props: CourseGridProps) {
 
