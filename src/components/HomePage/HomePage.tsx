@@ -27,7 +27,7 @@ export default function HomePage() {
           <Button
             startIcon={<VpnKey />}
             variant="contained"
-            onClick={() => navigateToAuth('/signUp')}
+            onClick={() => navigateToAuth('/signIn')}
             className={styles.signUpBtn}
           >
             Sign Up

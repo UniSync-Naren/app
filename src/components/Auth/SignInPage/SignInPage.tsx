@@ -26,7 +26,7 @@ export default function SignInPage() {
                 <div className={styles.imageContainer}>
                     <img src='/GoogleLogo.png' className={styles.googleImage} />
                 </div>
-                <text>Sign in with Google</text>
+                <text>Continue with Google</text>
                 </button>
       </div>
     </div>
