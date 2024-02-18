@@ -1,5 +1,4 @@
 'use client'
- 
 import { useRouter } from 'next/navigation'
 import MenuButton from '@/components/base/MenuButton/MenuButton';
 import styles from './Menu.module.css';

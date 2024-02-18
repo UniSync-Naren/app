@@ -9,7 +9,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);
-      router.push('/dashboard'); // Redirect to dashboard after signing in
+      router.push('/calendar'); // Redirect to dashboard after signing in
     } catch (error) {
       console.error(error);
       // Handle errors (e.g., show an error message)
