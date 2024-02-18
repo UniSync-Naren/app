@@ -10,11 +10,7 @@ $primary-white: #ffffffff;
   font-family: $font-family;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    to bottom left,
-    #0e3f84,
-    black
-  ); // Gradient from top right to bottom left
+  background: linear-gradient(to bottom left, #0e3f84, black);
   color: $primary-color;
   overflow-y: auto;
 
@@ -61,7 +57,7 @@ $primary-white: #ffffffff;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgb(216, 218, 229);
+    background-color: rgb(241, 241, 241);
 
     .logo {
       font-weight: 700;

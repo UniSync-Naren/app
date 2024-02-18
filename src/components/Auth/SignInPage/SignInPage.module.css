@@ -1,0 +1,59 @@
+.authContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom left, #0e3f84, black);
+}
+
+.card {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card .logo {
+  max-width: 150px;
+}
+.card .welcome {
+  font-size: 200%;
+  font-weight: 800;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.card .description {
+  color: #4d4d4d;
+}
+.card .imageContainer {
+  margin-right: 20px;
+}
+.card .googleImage {
+  width: 25px;
+}
+.card .googleSignInButton {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25%;
+}
+.card .googleSignInButton:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+  transition: 2ms;
+}/*# sourceMappingURL=SignInPage.module.css.map */

@@ -19,7 +19,7 @@ export default function HomePage() {
         <div>
           <Button
             startIcon={<AccountCircle />}
-            onClick={() => navigateToAuth('/signin')}
+            onClick={() => navigateToAuth('/signIn')}
             className={styles.signInBtn}
           >
             Sign In
@@ -27,7 +27,7 @@ export default function HomePage() {
           <Button
             startIcon={<VpnKey />}
             variant="contained"
-            onClick={() => navigateToAuth('/signup')}
+            onClick={() => navigateToAuth('/signUp')}
             className={styles.signUpBtn}
           >
             Sign Up
@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
         <Button
           variant="contained"
-          onClick={() => navigateToAuth('/signup')}
+          onClick={() => navigateToAuth('/signIn')}
           className={styles.ctaBtn}
         >
           Try UniSync for Free
@@ -56,7 +56,7 @@ export default function HomePage() {
         <p>Ready to take control of your university schedule?</p>
         <Button
           variant="contained"
-          onClick={() => navigateToAuth('/signup')}
+          onClick={() => navigateToAuth('/signIn')}
           className={styles.finalSignUpBtn}
         >
           Sign Up
