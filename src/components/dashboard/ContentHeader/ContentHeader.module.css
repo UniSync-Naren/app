@@ -2,10 +2,8 @@
   display: flex;
   height: 20%;
   width: 100%;
-  background-color: white;
-  color: #0e0d0d;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: solid #dadce5;
+  border-bottom: solid black;
   justify-content: end;
 }/*# sourceMappingURL=ContentHeader.module.css.map */

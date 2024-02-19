@@ -1,4 +1,4 @@
-import './globals.css'
+import styles from './SignedLayout.module.css'
 import Menu from '@/components/base/Menu/Menu'
 
 export const metadata = {
@@ -12,7 +12,7 @@ export default function SignedLayout({
   children: React.ReactNode
 }) {
   return (
-      <body>
+      <body className={styles.body}>
         <Menu/>
         {children}
       </body>

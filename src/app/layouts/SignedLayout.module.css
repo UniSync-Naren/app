@@ -1,0 +1,11 @@
+.body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  padding: 0vh;
+  margin: 0vh;
+  background: #092d60;
+  color: white;
+  overflow: auto;
+}/*# sourceMappingURL=SignedLayout.module.css.map */

@@ -1,0 +1,12 @@
+.body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  padding: 0vh;
+  margin: 0vh;
+  // background: linear-gradient(to bottom, #072957, rgb(3, 12, 57));
+  background: #092d60;
+  color: white;
+  overflow: auto;
+}

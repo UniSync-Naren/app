@@ -5,15 +5,15 @@
   align-self: center;
   align-items: center;
   border-style: none;
-  background-color: #F5F5F5;
-  color: #7f8080;
+  background: linear-gradient(to bottom, rgb(1, 6, 28), #082042);
   margin-top: 10px;
   border-radius: 5px;
   margin-bottom: 50px;
+  color: white;
 }
 
 .profilemenubutton:hover {
-  background-color: #2B67F4;
+  background-color: #2b67f4;
   transition: 0.2s;
   color: white;
 }

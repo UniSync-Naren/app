@@ -1,0 +1,10 @@
+.body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  padding: 0vh;
+  margin: 0vh;
+  color: white;
+  background: linear-gradient(to bottom, rgb(3, 13, 59), #0e3f84);
+}/*# sourceMappingURL=HomePageLayout.module.css.map */

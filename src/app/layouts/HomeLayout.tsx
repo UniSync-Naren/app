@@ -1,5 +1,5 @@
 import Menu from '@/components/base/Menu/Menu'
-import './globals.css'
+import styles from './HomePageLayout.module.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +12,7 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-      <body>
+      <body className={styles.body}> 
         {children}
       </body>
   )
