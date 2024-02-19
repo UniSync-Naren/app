@@ -17,9 +17,8 @@ export default function EventList(props: EventListProps) {
 
   return (
     <div className={styles.eventList}>
-      <div>
         {Object.entries(eventsByDay).map(([day, events]) => (
-          <div key={day}>
+          <div key={day} className={styles.daylist}>
             <div className={styles.dayCards}>{day}</div>
             {/* Sort events based on start time */}
             {events
@@ -37,7 +36,6 @@ export default function EventList(props: EventListProps) {
               ))}
           </div>
         ))}
-      </div>
     </div>
   );
 

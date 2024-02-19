@@ -16,7 +16,7 @@ export default function EventItem(props: EventItemProps) {
   return (
     <div className={styles.eventitem}>
       <div className={styles.icon}>
-        <CalendarTodayOutlinedIcon style={{ color: '#333' }}/>
+        {/* <CalendarTodayOutlinedIcon style={{ color: '#333' }}/> */}
       </div>
       <div className={styles.eventContent}>
         <div className={styles.eventname}>

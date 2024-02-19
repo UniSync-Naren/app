@@ -1,20 +1,25 @@
-.eventlist {
+.eventList {
   display: flex;
   width: 100%;
   height: 70%;
   flex: auto;
-  background-color: white;
   color: #0e0d0d;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .dayCards {
-  border-bottom: 0.5px solid #b3b6c0;
+  // border-bottom: 0.5px solid #01040e;
   font-family: system-ui;
   font-weight: 200;
   font-size: 20px;
   // background-color: #2b67f4;
   color: #2b67f4;
+}
+
+.daylist {
+  display: flex;
+  flex-direction: column;
 }
 
 .eventscroll {
