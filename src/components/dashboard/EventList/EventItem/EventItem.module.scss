@@ -16,6 +16,11 @@
   text-overflow: ellipsis; /* Add ellipsis to overly long text */
   white-space: nowrap; /* Keep the event title in one line */
 }
+.eventitem:hover {
+  background-color: #0b223d; /* Slightly lighter blue on hover */
+  transition: 0.1s;
+  cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+}
 
 .icon {
   display: flex;

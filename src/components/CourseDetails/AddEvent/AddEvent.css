@@ -3,14 +3,13 @@
   flex-direction: column;
   margin: 30 auto;
   padding: 20px;
-  background-color: white;
+  background-color: #020e20;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
 }
 .form-container h1 {
   text-align: center;
-  color: #333;
 }
 .form-container form {
   display: flex;
@@ -20,7 +19,6 @@
 .form-container form label {
   margin-bottom: 10px;
   font-size: 14px;
-  color: #555;
 }
 .form-container form label input,
 .form-container form label select,
@@ -34,14 +32,20 @@
 }
 .form-container form label input[type=checkbox] {
   margin-top: 0;
+  background-color: #0a2942;
+  border: #0a2942;
 }
 .form-container form label input[type=date],
 .form-container form label input[type=time],
 .form-container form label input[type=number] {
   width: calc(100% - 18px); /* Adjust width to consider padding */
+  background-color: #0a2942;
+  border: #0a2942;
 }
 .form-container form label select {
   width: 100%;
+  background-color: #0a2942;
+  border: #0a2942;
 }
 .form-container form label button {
   background-color: #3498db;
@@ -55,7 +59,6 @@
 .form-container form div {
   margin-top: 10px;
   padding: 10px;
-  background-color: #ecf0f1;
   border-radius: 4px;
 }
 .form-container form div label {

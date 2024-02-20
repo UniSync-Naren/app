@@ -1,14 +1,16 @@
 .courseEventsContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex: 1;
+  height: 100%;
+  width: 100%;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
   padding: 20px;
 }
 .courseEventsContainer .eventListContainer {
-  width: 60%;
+  width: 65%;
 }
-.courseEventsContainer .addEventContainer {
+.courseEventsContainer .infoboard {
   width: 35%;
 }/*# sourceMappingURL=CourseEvents.module.css.map */

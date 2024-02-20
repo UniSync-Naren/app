@@ -5,14 +5,13 @@
   flex-direction: column;
   margin: 30 auto;
   padding: 20px;
-  background-color: white;
+  background-color: #020e20;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
 
   h1 {
     text-align: center;
-    color: #333;
   }
 
   form {
@@ -23,7 +22,6 @@
     label {
       margin-bottom: 10px;
       font-size: 14px;
-      color: #555;
 
       input,
       select,
@@ -38,16 +36,22 @@
 
       input[type="checkbox"] {
         margin-top: 0;
+        background-color: #0a2942;
+        border: #0a2942;
       }
 
       input[type="date"],
       input[type="time"],
       input[type="number"] {
         width: calc(100% - 18px); /* Adjust width to consider padding */
+        background-color: #0a2942;
+        border: #0a2942;
       }
 
       select {
         width: 100%;
+        background-color: #0a2942;
+        border: #0a2942;
       }
 
       button {
@@ -64,7 +68,7 @@
     div {
       margin-top: 10px;
       padding: 10px;
-      background-color: #ecf0f1;
+      // background-color: #ecf0f1;
       border-radius: 4px;
 
       label {

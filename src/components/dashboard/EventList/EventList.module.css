@@ -10,9 +10,10 @@
 
 .dayCards {
   font-family: system-ui;
-  font-weight: 200;
+  font-weight: 500;
   font-size: 20px;
   color: #2b67f4;
+  margin-top: 10px;
 }
 
 .daylist {

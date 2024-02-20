@@ -5,21 +5,23 @@
   flex: auto;
   color: #0e0d0d;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .dayCards {
   // border-bottom: 0.5px solid #01040e;
   font-family: system-ui;
-  font-weight: 200;
+  font-weight: 500;
   font-size: 20px;
   // background-color: #2b67f4;
   color: #2b67f4;
+  margin-top: 10px;
 }
 
 .daylist {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .eventscroll {
