@@ -1,5 +1,6 @@
 import { InfoBoardProps } from '@/components/interface';
 import styles from './InfoBoard.module.scss';
+import { ClosestDeadlines } from './ClosestDeadlines/ClosestDeadlines';
 
 export default function InfoBoard(props: InfoBoardProps) {
   const score = props.weekScores[props.weekNum];
@@ -19,6 +20,7 @@ export default function InfoBoard(props: InfoBoardProps) {
         <span className={`${styles.levelValue} ${styles[level.toLowerCase()]}`}>{level}</span>
       </div>
       <div className={`${styles.progressBar} ${styles.progressLevel} ${styles[level.toLowerCase()]}`} style={{ width: progressBarWidth }}></div>
+      <ClosestDeadlines closestDeadlines={props.closestDeadlines}/>
     </div>
   );
 }

@@ -212,6 +212,11 @@ const isExamType = (eventType: EventType): eventType is ExamType => {
   return (Object.values(ExamType) as string[]).includes(eventType as string);
 }
 
+const closestDeadlines = eventList
+    .filter((event : Event) => new Date(event.endTime) > new Date())
+    .sort((a : Event, b : Event) => new Date(a.endTime).getTime() - new Date(b.endTime).getTime())
+    .slice(0, 5); // Get the five closest deadlines
+
 
   return (
     <div className= {styles.dashboard}>
@@ -220,7 +225,7 @@ const isExamType = (eventType: EventType): eventType is ExamType => {
           <EventList weekList = {weekList} />
       </div>
       <div className= {styles.infoBoard}>
-        <InfoBoard weekNum = {weekCounter} weekScores={weekScores} categorizedScores={categorizedScores}/>
+        <InfoBoard weekNum = {weekCounter} weekScores={weekScores} categorizedScores={categorizedScores} closestDeadlines={closestDeadlines}/>
       </div>
     </div>
   );

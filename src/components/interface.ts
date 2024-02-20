@@ -1,5 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { NumericLiteral } from "typescript";
+import { ClosestDeadlines } from "./dashboard/InfoBoard/ClosestDeadlines/ClosestDeadlines";
 
 export interface CourseGridProps {
     courseList: Course[];
@@ -121,4 +122,9 @@ export interface InfoBoardProps {
     weekNum : number;
     weekScores: number[];
     categorizedScores: string[];
+    closestDeadlines: Event[];
   }
+
+export interface ClosestDeadlineProps {
+    closestDeadlines : Event[];
+}
