@@ -5,7 +5,7 @@
   flex: auto;
   color: #0e0d0d;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .dayCards {
@@ -19,6 +19,7 @@
 .daylist {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .eventscroll {

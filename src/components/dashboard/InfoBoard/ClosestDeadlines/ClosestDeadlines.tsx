@@ -1,11 +1,13 @@
 import React from 'react';
 import { Event, ClosestDeadlineProps } from '@/components/interface';
+import styles from './ClosestDeadlines.module.scss'
 
 export const ClosestDeadlines = (props : ClosestDeadlineProps) => {  
 
   return (
-    <div>
-      <h2>Closest Deadlines</h2>
+    <div className= {styles.closestDeadlines}>
+      <div>Closest Deadlines</div>
+      <div>
       {props.closestDeadlines.length > 0 ? (
         <ul>
           {props.closestDeadlines.map((event : Event) => (
@@ -17,6 +19,7 @@ export const ClosestDeadlines = (props : ClosestDeadlineProps) => {
       ) : (
         <p>No upcoming deadlines.</p>
       )}
+      </div>
     </div>
   );
 };
