@@ -7,6 +7,7 @@ import EventItem from './EventItem/EventItem';
 export default function EventList(props: EventListProps) {
   // Group events by day
   const eventsByDay: { [key: string]: Event[] } = {};
+  console.log("weekList:", props.weekList)
   props.weekList.forEach((item: Event) => {
     const dayOfWeek = new Date(item.startTime).toLocaleDateString('en-US', { weekday: 'long' });
     if (!eventsByDay[dayOfWeek]) {

@@ -3,6 +3,7 @@ import styles from './InfoBoard.module.scss';
 import { ClosestDeadlines } from './ClosestDeadlines/ClosestDeadlines';
 
 export default function InfoBoard(props: InfoBoardProps) {
+  console.log("Scores: ", props.weekScores)
   const score = props.weekScores[props.weekNum];
   const level = props.categorizedScores[props.weekNum];
 

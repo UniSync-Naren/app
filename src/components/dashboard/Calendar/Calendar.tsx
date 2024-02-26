@@ -63,55 +63,60 @@ export default function Calendar() {
   const [weekScores, setWeekScores] = useState(new Array(startDates.length).fill(0))
   const [categorizedScores, setCategorizedScores] = useState(new Array(startDates.length).fill("medium"))
 
-  useEffect(() => {
-    async function fetchData() {
+  async function fetchData() {
 
-      setStartDates(getMondays(semesterStartDate, semesterEndDate));
+    setStartDates(getMondays(semesterStartDate, semesterEndDate));
 
-      try {
-        let request = {
-          method: 'GET',
-          url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
-          params: {
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            username: username
-          }
-        };
-        
-        //Convert to EventList from response format
-        const response = await axios(request);
-        console.log("Axios Response: ", response)
-        const newEventList = response.data.events.map((item: any) => {
-          return {eventid: item.eventid.S,
-          username: item.username.S, 
-          eventType: item.eventType.S,
-          courseid: item.courseid.S,
-          startTime: item.startTime.S,
-          endTime: item.endTime.S, 
-          graded: item.graded.N,
+    try {
+      let request = {
+        method: 'GET',
+        url: 'https://d83vwx2tsc.execute-api.ap-southeast-1.amazonaws.com/Prod/event',
+        params: {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          username: username
         }
-        });
-  
-        // Use alpha numeric to sort events by date
-        newEventList.sort((a : any, b : any) => a.startTime.localeCompare(b.startTime));
-        setEventList(newEventList);
-        console.log("Events : ", eventList)
-        setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
-        //Get workload scores
-        const eventItemList = {events: newEventList}
-        const workloadInfo = calculateWorkload(eventItemList, startDates)
-        setWeekScores(workloadInfo[0])
-        setCategorizedScores(workloadInfo[1])
-  
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      };
+      
+      //Convert to EventList from response format
+      const response = await axios(request);
+      console.log("Axios Response: ", response)
+      const newEventList = response.data.events.map((item: any) => {
+        return {eventid: item.eventid.S,
+        username: item.username.S, 
+        eventType: item.eventType.S,
+        courseid: item.courseid.S,
+        startTime: item.startTime.S,
+        endTime: item.endTime.S, 
+        graded: item.graded.N,
       }
+      });
+
+      // Use alpha numeric to sort events by date
+      newEventList.sort((a : any, b : any) => a.startTime.localeCompare(b.startTime));
+      setEventList(newEventList);
+      setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
+      //Get workload scores
+      const eventItemList = {events: newEventList}
+      const workloadInfo = calculateWorkload(eventItemList, startDates)
+      setWeekScores(workloadInfo[0])
+      setCategorizedScores(workloadInfo[1])
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
-    // console.log(startDates)
-    if(eventList.length == 0) {
+  }
+  useEffect(() => {
     fetchData();
+  }, []);
+  
+  useEffect(() => {
+    // Ensure startDates has been set and is not empty
+    if (startDates.length > 1 && eventList.length > 0) {
+      setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]));
     }
-  }, [eventList, weekCounter, weekScores]);
+  }, [startDates, weekCounter, eventList]);
+
+
 
   const increaseWeek = () => {
     if (weekCounter < startDates.length - 2) {
