@@ -6,7 +6,11 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 
-export default function AddEvents() {
+interface AddEventInterface{
+  addEvent: (event: Event) => void
+}
+
+export default function AddEvents({addEvent} : AddEventInterface) {
   const classTypes: string[] = Object.values(ClassType);
   const examTypes: string[] = Object.values(ExamType);
   const assignmentTypes: string[] = Object.values(AssignmentType);
@@ -117,6 +121,8 @@ export default function AddEvents() {
       };
 
       const response = await axios(request);
+      // Update eventList
+      repeatedEvents.forEach(event => addEvent(event));
       console.log(response)
     } catch (error) {
       console.error('Error fetching data:', error);

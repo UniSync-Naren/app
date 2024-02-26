@@ -1,11 +1,16 @@
 import styles from './InfoBoard.module.scss';
 import AddEvent from '../AddEvent/AddEvent';
+import { Event } from '@/components/interface';
 
-export default function InfoBoard() {
+interface AddEventInterface{
+  addEvent: (event: Event) => void
+}
+
+export default function InfoBoard({addEvent }: AddEventInterface) {
 
   return (
     <div className={styles.infoboard}>
-      <AddEvent/>
+      <AddEvent addEvent={addEvent}/>
     </div>
   );
 }

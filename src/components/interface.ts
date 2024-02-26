@@ -62,23 +62,23 @@ export interface EventItemsList {
 export type EventType = ClassType | ExamType | AssignmentType;
 
 export enum ClassType {
-    lecture = "lecture", 
-    tutorial = "tutorial", 
-    lab = "lab", 
-    seminar = "seminar", 
-    workshop = "workshop", 
+    lecture = "Lecture", 
+    tutorial = "Tutorial", 
+    lab = "Lab", 
+    seminar = "Seminar", 
+    workshop = "Workshop", 
 }
 export enum ExamType {
-    exam = "exam", 
-    practicals = "practicals", 
-    takeHomeExam = "takeHomeExam", 
+    exam = "Exam", 
+    practicals = "Practicals", 
+    takeHomeExam = "Take Home Exam", 
     quiz = "quiz", 
-    presentation = "presentation"
+    presentation = "Presentation"
 }
 export enum AssignmentType {
-    assignment = "assignment",
-    report = "report", 
-    project = "project"
+    assignment = "Assignment",
+    report = "Report", 
+    project = "Project"
 }
 
 export interface EventItemProps {
