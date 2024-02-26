@@ -1,67 +1,62 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  margin: 30 auto;
   padding: 20px;
   background-color: #020e20;
-  border-radius: 8px;
+  border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
 }
 .form-container h1 {
   text-align: center;
+  color: #fff;
 }
 .form-container form {
   display: flex;
   flex-direction: column;
-  flex: 0.5;
 }
 .form-container form label {
-  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 14px;
+  color: rgb(211, 218, 243);
 }
 .form-container form label input,
-.form-container form label select,
-.form-container form label button {
+.form-container form label select {
   padding: 8px;
   margin-top: 4px;
   border: 1px solid #ccc;
+  color: rgb(211, 218, 243);
   border-radius: 4px;
   font-size: 14px;
-  width: 100%; /* Ensure inputs and selects take full width */
+  width: 100%;
+  background-color: #0a2942;
+  border: none;
+  box-sizing: border-box;
+}
+.form-container form label input:focus, .form-container form label input:hover,
+.form-container form label select:focus,
+.form-container form label select:hover {
+  outline: none;
+  background-color: #2b67f4;
 }
 .form-container form label input[type=checkbox] {
   margin-top: 0;
   background-color: #0a2942;
   border: #0a2942;
 }
-.form-container form label input[type=date],
-.form-container form label input[type=time],
-.form-container form label input[type=number] {
-  width: calc(100% - 18px); /* Adjust width to consider padding */
-  background-color: #0a2942;
-  border: #0a2942;
-}
-.form-container form label select {
-  width: 100%;
-  background-color: #0a2942;
-  border: #0a2942;
-}
-.form-container form label button {
-  background-color: #3498db;
+.form-container form button {
+  margin-top: 20px;
+  background-color: #2b67f4;
   color: #fff;
-  cursor: pointer;
   transition: background-color 0.3s;
-}
-.form-container form label button:hover {
-  background-color: #2980b9;
-}
-.form-container form div {
-  margin-top: 10px;
-  padding: 10px;
+  border: 0;
+  padding: 8px;
+  font-size: 14px;
   border-radius: 4px;
+  box-sizing: border-box;
 }
-.form-container form div label {
-  display: block;
-  margin-bottom: 8px;
+.form-container form button:hover {
+  background-color: #2980b9;
 }/*# sourceMappingURL=AddEvent.css.map */

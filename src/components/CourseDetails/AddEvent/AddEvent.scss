@@ -1,37 +1,50 @@
-@import "../../global.scss";
-
 .form-container {
   display: flex;
   flex-direction: column;
-  margin: 30 auto;
   padding: 20px;
   background-color: #020e20;
-  border-radius: 8px;
+  border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
 
   h1 {
     text-align: center;
+    color: #fff; // Assuming you want to adjust the title color to fit the theme
   }
 
   form {
     display: flex;
     flex-direction: column;
-    flex: 0.5;
 
     label {
-      margin-bottom: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
       font-size: 14px;
+      color: rgb(
+        211,
+        218,
+        243
+      ); // Adjust label color to match input color for consistency
 
       input,
-      select,
-      button {
+      select {
         padding: 8px;
         margin-top: 4px;
         border: 1px solid #ccc;
+        color: rgb(211, 218, 243);
         border-radius: 4px;
         font-size: 14px;
-        width: 100%; /* Ensure inputs and selects take full width */
+        width: 100%; // Ensure inputs and selects take full width
+        background-color: #0a2942; // Matching the input and select background color
+        border: none; // Removing default border for a smoother design
+        box-sizing: border-box; // Include padding and border in the element's total width and height
+
+        &:focus,
+        &:hover {
+          outline: none; // Removes the focus outline to keep the design sleek
+          background-color: #2b67f4; // Adds a blue border on focus for better visibility
+        }
       }
 
       input[type="checkbox"] {
@@ -39,41 +52,20 @@
         background-color: #0a2942;
         border: #0a2942;
       }
-
-      input[type="date"],
-      input[type="time"],
-      input[type="number"] {
-        width: calc(100% - 18px); /* Adjust width to consider padding */
-        background-color: #0a2942;
-        border: #0a2942;
-      }
-
-      select {
-        width: 100%;
-        background-color: #0a2942;
-        border: #0a2942;
-      }
-
-      button {
-        background-color: #3498db;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        &:hover {
-          background-color: #2980b9;
-        }
-      }
     }
+    button {
+      margin-top: 20px;
+      background-color: #2b67f4;
+      color: #fff;
+      transition: background-color 0.3s;
+      border: 0;
+      padding: 8px; // Ensure consistent padding with inputs
+      font-size: 14px; // Match font size with inputs for consistency
+      border-radius: 4px; // Match border-radius with inputs for consistency
+      box-sizing: border-box; // Include padding and border in the button's total width and height
 
-    div {
-      margin-top: 10px;
-      padding: 10px;
-      // background-color: #ecf0f1;
-      border-radius: 4px;
-
-      label {
-        display: block;
-        margin-bottom: 8px;
+      &:hover {
+        background-color: #2980b9;
       }
     }
   }

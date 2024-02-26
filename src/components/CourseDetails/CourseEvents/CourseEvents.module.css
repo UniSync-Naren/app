@@ -6,11 +6,10 @@
   width: 100%;
   justify-content: space-between;
   margin: 0;
-  padding: 20px;
 }
 .courseEventsContainer .eventListContainer {
-  width: 65%;
+  width: 70%;
 }
 .courseEventsContainer .infoboard {
-  width: 35%;
+  width: 30%;
 }/*# sourceMappingURL=CourseEvents.module.css.map */

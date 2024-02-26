@@ -7,37 +7,11 @@
 
   h2 {
     font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
   }
 
   ul {
     list-style: none;
     padding: 0;
-
-    li {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      padding: 15px;
-
-      strong {
-        color: #333;
-      }
-
-      span {
-        color: #555;
-      }
-
-      .event-time {
-        font-weight: bold;
-        color: #0070c9;
-      }
-    }
-  }
-
-  p {
-    color: #555;
   }
 }
