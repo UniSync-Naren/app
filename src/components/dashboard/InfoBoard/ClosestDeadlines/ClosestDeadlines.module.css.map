@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"ClosestDeadlines.module.css"}
+{"version":3,"sources":["ClosestDeadlines.module.scss","ClosestDeadlines.module.css"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,wCAAA;ACCF;ADCE;EACE,yBAAA;EACA,YAAA;EACA,kBAAA;EACA,qBAAA;EACA,uBAAA;EACA,mBAAA;EACA,mBAAA;ACCJ;ADEE;EACE,gBAAA;EACA,UAAA;ACAJ;ADEI;EACE,kBAAA;EACA,kBAAA;EACA,wCAAA;EAGA,eAAA;ACFN;ADKM;EACE,iBAAA;EACA,cAAA;EACA,gBAAA;ACHR;ADQE;EACE,kBAAA;ACNJ","file":"ClosestDeadlines.module.css"}

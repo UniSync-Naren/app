@@ -1,1 +1,31 @@
-/*# sourceMappingURL=ClosestDeadlines.module.css.map */
+.closestDeadlines {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.closestDeadlines .title {
+  background-color: #020e20;
+  padding: 5px;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.closestDeadlines ul {
+  list-style: none;
+  padding: 0;
+}
+.closestDeadlines ul li {
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+.closestDeadlines ul li .grade {
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 5px;
+}
+.closestDeadlines p {
+  text-align: center;
+}/*# sourceMappingURL=ClosestDeadlines.module.css.map */

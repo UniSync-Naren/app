@@ -1,4 +1,39 @@
 .closestDeadlines {
-  //   background-color: antiquewhite;
-  //   margin-top: 20px;
+  border-radius: 8px; // Rounded corners for the outer box
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+
+  .title {
+    background-color: #020e20;
+    padding: 5px;
+    text-align: center;
+    justify-items: center;
+    justify-content: center; // Centers the content horizontally
+    align-items: center; // Centers the content vertically
+    margin-bottom: 20px; // Space between the title and the list
+  }
+
+  ul {
+    list-style: none; // Remove default list styling
+    padding: 0;
+
+    li {
+      padding: 10px 15px;
+      border-radius: 5px; // Slightly rounded corners for list items
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); // Subtle shadow for each list item
+
+      // Style for the course ID, time, and event type
+      font-size: 14px;
+
+      // Style specifically for the grade, making it stand out
+      .grade {
+        font-weight: bold; // Make grade bold
+        color: #007bff; // Use color for emphasis instead of background/margin
+        margin-left: 5px; // Space between the event details and the grade
+      }
+    }
+  }
+
+  p {
+    text-align: center; // Center-align the text for "No upcoming deadlines."
+  }
 }
