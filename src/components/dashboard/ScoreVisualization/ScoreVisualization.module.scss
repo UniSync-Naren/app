@@ -1,0 +1,41 @@
+.scoreVisualizationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  padding: 10px; // Added padding around the container for a cleaner look
+}
+
+.scoreSquare {
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.5s ease, transform 0.2s ease; // Smooth transition for color and a gentle pop effect
+  margin: 2px; // Adjust spacing between squares
+  border-radius: 4px; // Rounded corners for each square
+  cursor: pointer; // Change cursor to pointer on hover to indicate interactivity
+}
+
+/* Define colors for each score level */
+.low {
+  background-color: #4caf50; /* Green for low level */
+}
+
+.medium {
+  background-color: #ffc107; /* Yellow for medium level */
+}
+
+.high {
+  background-color: #ff5722; /* Orange for high level */
+}
+
+.highlight {
+  outline: 2px solid #fff; // White outline for highlighting
+  outline-offset: -2px;
+  transform: scale(1.1); // Gently scale up the highlighted square for emphasis
+}
+
+/* Hover effect for squares */
+.scoreSquare:hover {
+  transform: scale(1.1); // Slightly scale up squares on hover for a pop effect
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Add shadow for depth
+}

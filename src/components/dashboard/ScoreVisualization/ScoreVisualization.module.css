@@ -1,0 +1,41 @@
+.scoreVisualizationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  padding: 10px;
+}
+
+.scoreSquare {
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.5s ease, transform 0.2s ease;
+  margin: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Define colors for each score level */
+.low {
+  background-color: #4caf50; /* Green for low level */
+}
+
+.medium {
+  background-color: #ffc107; /* Yellow for medium level */
+}
+
+.high {
+  background-color: #ff5722; /* Orange for high level */
+}
+
+.highlight {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  transform: scale(1.1);
+}
+
+/* Hover effect for squares */
+.scoreSquare:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}/*# sourceMappingURL=ScoreVisualization.module.css.map */

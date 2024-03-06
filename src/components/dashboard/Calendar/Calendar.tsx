@@ -8,6 +8,7 @@ import { Event, EventItemsList, ClassType, ExamType, AssignmentType, EventType }
 import InfoBoard from '../InfoBoard/InfoBoard';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import ScoreVisualization from '../ScoreVisualization/ScoreVisualization';
 
 export default function Calendar() {
 
@@ -243,6 +244,7 @@ const closestDeadlines = eventList
   return (
     <div className= {styles.dashboard}>
       <div className={styles.calendar}>
+          <ScoreVisualization scores={categorizedScores} currentWeek={weekCounter} />
           <ContentHeader handleRightPress = {increaseWeek} handleLeftPress = {decreaseWeek} weekNumber = {weekCounter + 1}/>
           <EventList weekList = {weekList} />
       </div>

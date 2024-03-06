@@ -128,3 +128,8 @@ export interface InfoBoardProps {
 export interface ClosestDeadlineProps {
     closestDeadlines : Event[];
 }
+
+export interface ScoreVisualizationProps {
+    currentWeek : number;
+    scores : string[];
+}
