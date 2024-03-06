@@ -5,7 +5,6 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 export default function EventItem(props: EventItemProps) {
   const startTime = new Date(props.startTime); // Assuming it's the start time, you can adjust accordingly
   const endTime = new Date(props.endTime);
-  console.log("Start Time: ", startTime, ", End Time: ", endTime)
 
   const formatTime = (time: Date) => {
     const hour = time.getHours().toString().padStart(2, '0');

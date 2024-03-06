@@ -80,6 +80,7 @@ export default function Calendar() {
       //Convert to EventList from response format
       const response = await axios(request);
       console.log("Axios Response: ", response)
+
       const newEventList = response.data.events.map((item: any) => {
         return {eventid: item.eventid.S,
         username: item.username.S, 
@@ -94,27 +95,36 @@ export default function Calendar() {
       // Use alpha numeric to sort events by date
       newEventList.sort((a : any, b : any) => a.startTime.localeCompare(b.startTime));
       setEventList(newEventList);
-      setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
-      //Get workload scores
-      const eventItemList = {events: newEventList}
-      const workloadInfo = calculateWorkload(eventItemList, startDates)
-      setWeekScores(workloadInfo[0])
-      setCategorizedScores(workloadInfo[1])
+      console.log(weekCounter, weekCounter + 1)
 
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   }
+
+
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log('Calculating workload with eventList:', eventList);
+    console.log('weekList : ', weekList )
+    setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]))
+    const workloadInfo = calculateWorkload(eventList, startDates);
+    setWeekScores(workloadInfo[0]);
+    setCategorizedScores(workloadInfo[1]);
+  }, [eventList]);
   
   useEffect(() => {
     // Ensure startDates has been set and is not empty
     if (startDates.length > 1 && eventList.length > 0) {
       setWeekList(filterEvents(startDates[weekCounter], startDates[weekCounter + 1]));
     }
-  }, [startDates, weekCounter, eventList]);
+  }, [startDates, weekCounter]);
+
+
 
 
 
@@ -134,27 +144,30 @@ export default function Calendar() {
     }
   }
 
-  const calculateWorkload = (eventList: EventItemsList, dates: Date[]) => {
+
+
+
+  const calculateWorkload = (eventList: Event[], dates: Date[]) => {
     let totalTime = 0;
     let totalGrade = 0;
-    const eventNum = eventList.events.length
+    const eventNum = eventList.length
     let weekScores = new Array(dates.length).fill(0)
 
     //Calculate total time and grades to calculate score later
     for(let i = 0;i < eventNum; i++) {
-      const currEvent = eventList.events[i]
+      const currEvent = eventList[i]
       const startTime = new Date(currEvent.startTime).getTime();
       const endTime = new Date(currEvent.endTime).getTime();
       const timeDifferenceInMinutes = (endTime - startTime) / (1000 * 60);
       totalTime += timeDifferenceInMinutes;
       totalGrade += Number(currEvent.graded)
-      console.log(totalGrade)
     }
+    console.log(totalTime, totalGrade, eventNum)
 
     //Calculating score for each week
     for(let i = 0;i < eventNum; i++) {
         let weekNum = 0
-        const currEvent = eventList.events[i]
+        const currEvent = eventList[i]
         for(let j = 0; j < dates.length - 1;j++){
             weekNum = j
             if (dates[j] < new Date(currEvent.startTime) && dates[j + 1] > new Date(currEvent.startTime)) {
@@ -176,6 +189,7 @@ export default function Calendar() {
         if (isExamType(currEvent.eventType)) {
           weekScores[weekNum] += currEvent.graded/totalGrade
         } 
+        console.log(weekScores[weekNum])
         
     }
 
@@ -198,8 +212,6 @@ export default function Calendar() {
       return 'Medium';
     }
   });
-
-  console.log(convertedScores, categorizedScores)
   return [convertedScores, categorizedScores]
 }
 
@@ -217,10 +229,15 @@ const isExamType = (eventType: EventType): eventType is ExamType => {
   return (Object.values(ExamType) as string[]).includes(eventType as string);
 }
 
+
+
+
 const closestDeadlines = eventList
     .filter((event : Event) => new Date(event.endTime) > new Date())
     .sort((a : Event, b : Event) => new Date(a.endTime).getTime() - new Date(b.endTime).getTime())
     .slice(0, 5); // Get the five closest deadlines
+
+
 
 
   return (

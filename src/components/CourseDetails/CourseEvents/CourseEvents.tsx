@@ -54,9 +54,8 @@ export default function CourseEvents() {
       const addEvent = (newEvent : Event) => {
         setEventList((prevEvents) => [...prevEvents, newEvent]);
       };
-    
+
       useEffect(() => {
-        // Get the current URL
         const currentUrl = window.location.href;
         console.log("URL", currentUrl)
         const extractedCode = currentUrl.split('/').pop();
@@ -64,7 +63,7 @@ export default function CourseEvents() {
         if (extractedCode != undefined) {
           fetchData(extractedCode)
         }
-      }, [eventList]);
+      }, []);
 
     return (
         <div className={styles.courseEventsContainer}>
