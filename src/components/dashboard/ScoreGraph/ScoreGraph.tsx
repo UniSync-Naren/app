@@ -42,7 +42,7 @@ const ScoreGraph: React.FC<ScoreGraphProps> = ({ scores }) => {
         backgroundColor: '#020e20',
         borderColor: '#dfdfe9',
         borderWidth: 1,
-        tension: 0.1,
+        tension: 0.3,
       },
     ],
   };
